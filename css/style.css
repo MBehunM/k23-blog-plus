@@ -29,7 +29,7 @@ input,button,textarea{font-family:inherit;}
 input::-ms-clear{display: none;}
 button{cursor: pointer;}
 button::-moz-focus-inner {padding:0;border:0;}
-a, a:visited{text-decoration: none;}
+a, a:visited{text-decoration: none; color:#333;}
 a:hover{text-decoration: none;}
 ul li{list-style: none;}
 img{vertical-align: top;}
@@ -63,6 +63,7 @@ body {
 .header__content li {
 	padding: 0 20px;
 	width: 120px;
+
 }
 
 
@@ -84,35 +85,31 @@ body {
 	background: url(../img/activelogo.png) no-repeat;
 }
 
-.header__menu li {
-	list-style: none;
 
 
-
-}
-
-.header__menu a {
-	text-decoration: none;
-	color: #000;
-}
 
 .header__menu--item {
 	display: inline-block;
 	position: relative;
 	text-transform: uppercase;
 	font-weight: 700;
-
-	
+	font-size: 20px;
+	width: auto;
 }
 
-.header__menu--item:nth-child(-n+2) {
-border-right: 2px solid black;
+.header__menu--item:nth-child(-n+2):after {
+	content: "|";
+	position: absolute;
+	right: -11px;
+	bottom: 1px;
 }
 
 .header__submenu {
 	display: none;
 	background-color: #fff;
-	padding: 0 20px 0 10px;
+	border-radius: 5%;
+	border-top-left-radius: 0;
+	padding: 5px 60px 0 0;
 	position: absolute;
 	top: 100%;
 	left: 0;
@@ -120,27 +117,40 @@ border-right: 2px solid black;
 	text-transform: lowercase;
 	font-weight: 500;
 	text-align: left;
+	line-height: 30px;
 }
 
-.header__menu--item:hover {
-	background-color: #fff;
-	transition: 0.3s;
+.header__menu--item:hover a{
+	color: #52359d;
+	text-decoration: underline;
+}
+
+.header__menu--item:active a{
+	text-decoration: underline;
+	color: #333;
 }
 
 .header__menu--item:hover .header__submenu {
 	display: block;
 }
 
-.header__submenu li:hover {
-	background-color: rgba(240,240,240,0.3);
-	transition: 0.3s;
-}
 
 .header__button {
 	margin-left: auto;
 	padding: 15px 35px;
 	text-transform: uppercase;
 	cursor: pointer;
+	font-size: 20px;
+}
+
+.header__button:hover {
+	background: #52359d;
+	color: #fff;
+}
+
+.header__button:active {
+	background: #333;
+	color: #999;
 }
 
 .content {
@@ -167,4 +177,45 @@ border-right: 2px solid black;
 .content__heading {
 	font-size: 24px;
 	font-weight: 700;
+}
+
+.content__reviews {
+	display: flex;
+}
+
+.content__reviews--foto {
+	margin-right: 30px;
+}
+
+.content__reviews--data {}
+
+.content__reviews--dataname {
+	display: inline-block;
+	font-size: 20px;
+	font-weight: 700;
+	margin: 10px 35px 40px 0;
+}
+
+.content__reviews--datadate {
+	display: inline-block;
+	color: #797979;
+}
+
+.content__reviews--datadate:before {
+	content: url(../img/calendar.png);
+	position: relative;
+	top: 3px;
+	right: 3px;
+}
+
+.content__reviews--datatext {
+	font-size: 16px;
+	color: #797979;
+	line-height: 20px;
+}
+
+.reviews-separator {
+	height: 1px;
+	background-color: #c6c6c6;
+	margin: 20px 0;
 }
